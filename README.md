@@ -54,8 +54,8 @@ docker network create --driver bridge --subnet 172.19.0.0/16 net2
 ### Run Containers in Separate Networks
 
 ```bash
-docker run -d --name c1 --network net1 ubuntu sleep infinity
-docker run -d --name c2 --network net2 ubuntu sleep infinity
+docker run -d --name c1 --network net1 nginx 
+docker run -d --name c2 --network net2 nginx
 ```
 ### Install `ping` Command
 
@@ -73,5 +73,5 @@ docker network connect net2 c1
 ### Verify Communication
 
 ```bash
-docker exec c1 ping -c 3 c2
+docker exec c1 ping c2
 ```
